@@ -21,6 +21,6 @@ val transparentLightGreen = Color(0xFF8BC34A).copy(alpha = 0.8f)
 val transparentTeal = Color(0xFF009688).copy(alpha = 0.6f)
 val transparentIndigo = Color(0xFF3F51B5).copy(alpha = 0.6f)
 val transparentGrey = Color(0xFF9E9E9E).copy(alpha = 0.3f)
-val transparentBlack = Color(0xFF000000).copy(alpha = 0.2f)
+val transparentBlack = Color(0xFF000000).copy(alpha = 0.6f)
 val transparentWhite = Color(0xFFFFFFFF).copy(alpha = 0.1f)
 
