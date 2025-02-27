@@ -54,7 +54,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     val currentAnimatedColor by animateColorAsState(
         colorList[pagerState.currentPage],
         animationSpec = tween(
-            durationMillis = 700,
+            durationMillis = 1200,
             easing = FastOutSlowInEasing
         ),
         label = "color",
@@ -62,7 +62,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     val exAnimatedColor by animateColorAsState(
         colorList[pagerState.currentPage + 1],
         animationSpec = tween(
-            durationMillis = 700,
+            durationMillis = 400,
             easing = FastOutSlowInEasing
         ),
         label = "color",
