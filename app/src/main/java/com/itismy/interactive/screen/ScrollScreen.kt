@@ -29,7 +29,7 @@ fun ScrollScreen(
 ) {
     val scrollState = rememberScrollState()
     LaunchedEffect(scrollState.value) {
-        Log.d("scrollState",scrollState.value.toString())
+        Log.d("scrollState", scrollState.value.toString())
     }
     val configuration = LocalConfiguration.current
     val widthWeight = 0.9F
@@ -45,17 +45,16 @@ fun ScrollScreen(
         verticalArrangement = Arrangement.Center,
     ) {
         HorizontalPager(
-            modifier = modifier
-                .background(Color.Gray)
-                .fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             state = rememberPagerState { 5 },
             pageSize = pageSize,
+            userScrollEnabled = scrollState.value < 200,
             contentPadding = PaddingValues(horizontal = horizontalContentPadding),
             verticalAlignment = Alignment.CenterVertically,
         ) { page ->
             Column(
                 modifier = Modifier
-                    .fillMaxWidth(0.95f)
+                    .fillMaxWidth()
                     .height(2000.dp)
                     .background(transparentBlue),
             ) {
