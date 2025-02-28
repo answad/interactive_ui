@@ -3,7 +3,6 @@ package com.itismy.interactive.screen
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,9 +17,11 @@ import com.itismy.interactive.circlePager.LiabilitiesPager
 import com.itismy.interactive.ui.theme.*
 import kotlinx.collections.immutable.persistentListOf
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    navigateToScroll: () -> Unit,
+) {
     val colorList = persistentListOf(
         transparentPurple,
         transparentBlue,
@@ -34,6 +35,20 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         transparentIndigo,
         transparentGrey,
         transparentBlack,
+    )
+    val navigateFunList = persistentListOf(
+        navigateToScroll,
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
     )
 
     val pagerState = rememberPagerState(pageCount = { colorList.size - 1 })
@@ -61,6 +76,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         end = Offset(800f, 300f),
         start = Offset(300f, 1000f),
     )
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -70,7 +86,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         LiabilitiesPager(
             modifier = modifier,
             pagerState = pagerState,
-            colorList = colorList
+            colorList = colorList,
+            navigateFunList = navigateFunList,
         )
     }
 }

@@ -1,6 +1,5 @@
 package com.itismy.interactive.circlePager
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,12 +18,12 @@ import kotlinx.collections.immutable.PersistentList
 import kotlin.math.absoluteValue
 import kotlin.math.sin
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun LiabilitiesPager(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
     colorList: PersistentList<Color>,
+    navigateFunList: PersistentList<() -> Unit>,
 ) {
     val pageSpacing = 75.dp
     val rotateDegree = 15F
@@ -43,6 +42,10 @@ fun LiabilitiesPager(
         Card(
             onClick = {
                 when (page) {
+                    0 -> {
+                        navigateFunList[page].invoke()
+                    }
+
                     1 -> {}
                     2 -> {}
                     3 -> {}
