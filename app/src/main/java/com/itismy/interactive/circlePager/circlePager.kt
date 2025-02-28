@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.PersistentList
 import kotlin.math.absoluteValue
 import kotlin.math.sin
 
@@ -23,6 +24,7 @@ import kotlin.math.sin
 fun LiabilitiesPager(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
+    colorList: PersistentList<Color>,
 ) {
     val pageSpacing = 75.dp
     val rotateDegree = 15F
@@ -39,8 +41,24 @@ fun LiabilitiesPager(
         contentPadding = PaddingValues(horizontal = horizontalContentPadding),
     ) { page ->
         Card(
-            onClick = { },
-            colors = CardDefaults.cardColors(Color.Black),
+            onClick = {
+                when (page) {
+                    1 -> {}
+                    2 -> {}
+                    3 -> {}
+                    4 -> {}
+                    5 -> {}
+                    6 -> {}
+                    7 -> {}
+                    8 -> {}
+                    9 -> {}
+                    10 -> {}
+                    11 -> {}
+                    12 -> {}
+                    13 -> {}
+                }
+            },
+            colors = CardDefaults.cardColors(colorList[page]),
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.5f)

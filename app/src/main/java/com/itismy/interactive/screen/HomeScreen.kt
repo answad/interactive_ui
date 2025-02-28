@@ -15,26 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import com.itismy.interactive.circlePager.LiabilitiesPager
-import com.itismy.interactive.ui.theme.transparentBlack
-import com.itismy.interactive.ui.theme.transparentBlue
-import com.itismy.interactive.ui.theme.transparentGreen
-import com.itismy.interactive.ui.theme.transparentGrey
-import com.itismy.interactive.ui.theme.transparentIndigo
-import com.itismy.interactive.ui.theme.transparentLightBlue
-import com.itismy.interactive.ui.theme.transparentLightGreen
-import com.itismy.interactive.ui.theme.transparentOrange
-import com.itismy.interactive.ui.theme.transparentPurple
-import com.itismy.interactive.ui.theme.transparentRed
-import com.itismy.interactive.ui.theme.transparentTeal
-import com.itismy.interactive.ui.theme.transparentWhite
-import com.itismy.interactive.ui.theme.transparentYellow
+import com.itismy.interactive.ui.theme.*
 import kotlinx.collections.immutable.persistentListOf
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     val colorList = persistentListOf(
-        transparentWhite,
         transparentPurple,
         transparentBlue,
         transparentGreen,
@@ -50,7 +37,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     )
 
     val pagerState = rememberPagerState(pageCount = { colorList.size - 1 })
-
     val currentAnimatedColor by animateColorAsState(
         colorList[pagerState.currentPage],
         animationSpec = tween(
@@ -72,7 +58,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             currentAnimatedColor,
             exAnimatedColor,
         ),
-        end = Offset (800f, 300f),
+        end = Offset(800f, 300f),
         start = Offset(300f, 1000f),
     )
     Column(
@@ -83,8 +69,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     ) {
         LiabilitiesPager(
             modifier = modifier,
-            pagerState = pagerState
+            pagerState = pagerState,
+            colorList = colorList
         )
     }
 }
-
