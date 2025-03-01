@@ -1,10 +1,12 @@
 package com.itismy.interactive.screen
 
 import android.util.Log
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,12 +14,13 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import com.itismy.interactive.ui.theme.transparentBlue
@@ -28,12 +31,12 @@ fun ScrollScreen(
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
+    val isExpend = scrollState.value > 200
     LaunchedEffect(scrollState.value) {
         Log.d("scrollState", scrollState.value.toString())
     }
     val configuration = LocalConfiguration.current
-    val widthWeight = 0.9F
-    val pageSize = PageSize.Fixed(pageSize = (configuration.screenWidthDp * widthWeight).dp)
+    val widthWeight = if (isExpend) 1f else 0.8f
     val horizontalContentPadding = (configuration.screenWidthDp * (1F - widthWeight) / 2).dp
 
     Column(
@@ -47,18 +50,43 @@ fun ScrollScreen(
         HorizontalPager(
             modifier = modifier.fillMaxSize(),
             state = rememberPagerState { 5 },
-            pageSize = pageSize,
-            userScrollEnabled = scrollState.value < 200,
+            userScrollEnabled = !isExpend,
+            pageSpacing = 50.dp,
             contentPadding = PaddingValues(horizontal = horizontalContentPadding),
-            verticalAlignment = Alignment.CenterVertically,
         ) { page ->
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(2000.dp)
-                    .background(transparentBlue),
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
             ) {
-
+                Column(
+                    modifier = Modifier
+                        .animateContentSize()
+                        .fillMaxWidth()
+                        .height(2000.dp)
+                        .background(
+                            color = transparentBlue,
+                            shape = RoundedCornerShape(size = 6.dp),
+                        ),
+                ) {
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                    Text("ugyhbgjkj")
+                }
             }
         }
     }
