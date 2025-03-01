@@ -2,6 +2,9 @@ package com.itismy.interactive.screen
 
 import android.util.Log
 import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,8 +39,13 @@ fun ScrollScreen(
         Log.d("scrollState", scrollState.value.toString())
     }
     val configuration = LocalConfiguration.current
-    val widthWeight = if (isExpend) 1f else 0.8f
-    val horizontalContentPadding = (configuration.screenWidthDp * (1F - widthWeight) / 2).dp
+    val widthWeight = animateFloatAsState(
+        if (isExpend) 1f else 0.8f, animationSpec = tween(
+            durationMillis = 1000,
+            easing = FastOutSlowInEasing
+        )
+    )
+    val horizontalContentPadding = (configuration.screenWidthDp * (1F - widthWeight.value) / 2).dp
 
     Column(
         modifier = modifier
@@ -60,7 +68,6 @@ fun ScrollScreen(
             ) {
                 Column(
                     modifier = Modifier
-                        .animateContentSize()
                         .fillMaxWidth()
                         .height(2000.dp)
                         .background(
