@@ -62,38 +62,33 @@ fun ScrollScreen(
             pageSpacing = 50.dp,
             contentPadding = PaddingValues(horizontal = horizontalContentPadding),
         ) { page ->
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center,
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(2000.dp)
+                    .background(
+                        color = transparentBlue,
+                        shape = RoundedCornerShape(size = 6.dp),
+                    ),
             ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(2000.dp)
-                        .background(
-                            color = transparentBlue,
-                            shape = RoundedCornerShape(size = 6.dp),
-                        ),
-                ) {
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                    Text("ugyhbgjkj")
-                }
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
+                Text("ugyhbgjkj")
             }
         }
     }
