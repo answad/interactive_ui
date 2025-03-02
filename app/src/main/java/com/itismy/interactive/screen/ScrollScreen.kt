@@ -44,9 +44,9 @@ fun ScrollScreen(
     }
     val configuration = LocalConfiguration.current
     val widthWeight = animateFloatAsState(
-        if (isExpend) 1f else 0.8f,
+        if (isExpend) 1f else 0.85f,
         animationSpec = tween(
-            durationMillis = 1000,
+            durationMillis = 500,
             easing = FastOutSlowInEasing
         ),
     )
@@ -81,7 +81,7 @@ fun ScrollScreen(
                 modifier = modifier.fillMaxSize(),
                 state = pagerState,
                 userScrollEnabled = !isExpend,
-                pageSpacing = 50.dp,
+                pageSpacing = 20.dp,
                 contentPadding = PaddingValues(horizontal = horizontalContentPadding),
             ) { page ->
                 Column(
