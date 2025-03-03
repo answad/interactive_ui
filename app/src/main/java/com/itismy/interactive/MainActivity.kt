@@ -63,7 +63,9 @@ fun InteractiveNavHost(modifier: Modifier = Modifier) {
             enterTransition = { scaleIn(animationSpec = tween(durationMillis = 1000)) },
             exitTransition = { fadeOut(animationSpec = tween(durationMillis = 1000)) },
         ) {
-            ScrollScreen()
+            ScrollScreen(
+                popUpBackStack = navController::popBackStack
+            )
         }
     }
 }
