@@ -66,12 +66,13 @@ fun LiabilitiesPager(
                 .fillMaxWidth()
                 .fillMaxHeight(0.5f)
                 .graphicsLayer {
+
                     val pageOffset =
                         (pagerState.currentPageOffsetFraction + (pagerState.currentPage - page))
                     val distance = (configuration.screenWidthDp.dp / 2) - pageSpacing
                     val height = sin(Math.toRadians(rotateDegree.toDouble())) * distance.toPx()
 
-                    translationY = (height * pageOffset.absoluteValue).toFloat()
+                    translationY = ((height + 20) * pageOffset.absoluteValue).toFloat()
                     rotationZ = -rotateDegree * pageOffset
                     alpha = 0.7F + (0.3F * (1F - pageOffset.absoluteValue.coerceIn(0F, 1F)))
                 }
